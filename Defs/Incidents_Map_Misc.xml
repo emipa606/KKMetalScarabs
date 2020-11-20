@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <IncidentDef>
+    <defName>BugsPass</defName>
+    <label>bugs pass</label>
+    <category>Misc</category>
+    <targetTags>
+      <li>Map_PlayerHome</li>
+    </targetTags>
+    <workerClass>KK_ResourceBugs.KK_IncidentWorker_BugsPass</workerClass>
+    <baseChance>0.7</baseChance>
+    <minRefireDays>13</minRefireDays>
+  </IncidentDef>
+</Defs>
