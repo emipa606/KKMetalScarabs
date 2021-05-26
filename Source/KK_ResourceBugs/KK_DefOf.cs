@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using RimWorld;
 using Verse;
-using RimWorld;
 
 namespace KK_ResourceBugs
 {
@@ -36,6 +32,5 @@ namespace KK_ResourceBugs
         public static StatDef SmeltingSpeed;
 
         public static EffecterDef Smelt;
-        
     }
 }

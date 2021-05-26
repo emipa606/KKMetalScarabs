@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Verse;
-using RimWorld;
+﻿using Verse;
 
 namespace KK_ResourceBugs
 {
     [StaticConstructorOnStartup]
-    static public class KK_DefWrapper
+    public static class KK_DefWrapper
     {
         static KK_DefWrapper()
         {
@@ -18,11 +13,10 @@ namespace KK_ResourceBugs
             DefDatabase<RecipeDef>.ResolveAllReferences();
         }
 
-        static public void SetupWrappedDefs()
+        public static void SetupWrappedDefs()
         {
             DefDatabase<ThingDef>.Add(KK_ThingDefGenerator_Bugs.ImpliedThingDefs());
             DefDatabase<PawnKindDef>.Add(KK_PawnKindGenerator_Bugs.ImpliedPawnKindDefs());
-
         }
-    }   
+    }
 }

@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using RimWorld;
 using Verse;
-using UnityEngine;
-using System.Text;
 
 namespace KK_ResourceBugs
 {
-
     internal static class KK_ThingDefGenerator_Bugs
     {
         public static IEnumerable<ThingDef> ImpliedThingDefs()
@@ -16,24 +13,23 @@ namespace KK_ResourceBugs
             var i = 0;
             Log.Message("[KK]Generating pawn");
             //generating Foreach
-            foreach (ThingDef metal in from def in DefDatabase<ThingDef>.AllDefs.ToList()
-                                       where def.stuffProps != null && def.stuffProps.categories.Contains(StuffCategoryDefOf.Metallic)
-                                       select def)
+            foreach (var metal in from def in DefDatabase<ThingDef>.AllDefs.ToList()
+                where def.stuffProps != null && def.stuffProps.categories.Contains(StuffCategoryDefOf.Metallic)
+                select def)
             {
                 //referencing Template
-                ThingDef thingAnimal = KK_DefOf.Megascarab;
-                ThingDef Chunk = ThingDefOf.ChunkSlagSteel;
+                var thingAnimal = KK_DefOf.Megascarab;
                 var bug = new ThingDef
                 {
-                    shortHash = (ushort)(thingAnimal.shortHash + i + 1)
+                    shortHash = (ushort) (thingAnimal.shortHash + i + 1)
                 };
 
                 //aux floats
-                var maxHitPoints = metal.stuffProps.statFactors.GetStatFactorFromList(StatDefOf.MaxHitPoints);
-                var marketValue = StatUtility.GetStatFactorFromList(metal.statBases, StatDefOf.MarketValue);
-                var meleeWeapon_CooldownMultiplier = metal.stuffProps.statFactors.GetStatFactorFromList(StatDefOf.MeleeWeapon_CooldownMultiplier);
-                var sharpDamageMultiplier = StatUtility.GetStatFactorFromList(metal.statBases, StatDefOf.SharpDamageMultiplier);
-                var bluntDamageMultiplier = StatUtility.GetStatFactorFromList(metal.statBases, StatDefOf.BluntDamageMultiplier);
+                var marketValue = metal.statBases.GetStatFactorFromList(StatDefOf.MarketValue);
+                var meleeWeapon_CooldownMultiplier =
+                    metal.stuffProps.statFactors.GetStatFactorFromList(StatDefOf.MeleeWeapon_CooldownMultiplier);
+                var sharpDamageMultiplier = metal.statBases.GetStatFactorFromList(StatDefOf.SharpDamageMultiplier);
+                var bluntDamageMultiplier = metal.statBases.GetStatFactorFromList(StatDefOf.BluntDamageMultiplier);
 
                 //Defining ThingDef
                 //BasePawn
@@ -101,14 +97,14 @@ namespace KK_ResourceBugs
                     {
                         return 150;
                     }
-                    else
-                    {
-                        return 15;
-                    }
+
+                    return 15;
                 }
+
                 bug.defName = "Bug_" + metal.defName;
                 bug.label = metal.label + " scarab";
-                bug.description = "Scarab containing considerable amounts of " + metal.defName + ". Quite valuable and the metal can be extracted from it's corps";
+                bug.description = "Scarab containing considerable amounts of " + metal.label +
+                                  ". Quite valuable and the metal can be extracted from it's corpse.";
                 bug.butcherProducts = new List<ThingDefCountClass>
                 {
                     new ThingDefCountClass(metal, amount())
@@ -117,7 +113,8 @@ namespace KK_ResourceBugs
                 StatUtility.SetStatValueInList(ref bug.statBases, StatDefOf.ArmorRating_Blunt, 0.3f);
                 StatUtility.SetStatValueInList(ref bug.statBases, StatDefOf.ArmorRating_Sharp, 0.5f);
                 StatUtility.SetStatValueInList(ref bug.statBases, StatDefOf.MarketValue, marketValue * 100f);
-                StatUtility.SetStatValueInList(ref bug.statBases, StatDefOf.MoveSpeed, (float)Math.Round(4.7f / meleeWeapon_CooldownMultiplier, 3));
+                StatUtility.SetStatValueInList(ref bug.statBases, StatDefOf.MoveSpeed,
+                    (float) Math.Round(4.7f / meleeWeapon_CooldownMultiplier, 3));
                 bug.race.baseBodySize = 0.4f;
                 bug.race.baseHungerRate = 0.2f;
                 bug.race.baseHealthScale = 0.8f;
@@ -133,7 +130,6 @@ namespace KK_ResourceBugs
                         power = 7 * sharpDamageMultiplier,
                         cooldownTime = 2.5f * meleeWeapon_CooldownMultiplier,
                         linkedBodyPartsGroup = KK_DefOf.Mouth
-
                     },
                     new Tool
                     {
@@ -145,8 +141,8 @@ namespace KK_ResourceBugs
                         power = 4 * bluntDamageMultiplier,
                         cooldownTime = 1.65f * meleeWeapon_CooldownMultiplier,
                         linkedBodyPartsGroup = KK_DefOf.HeadAttackTool,
-                        chanceFactor = 0.2f                       
-                    },
+                        chanceFactor = 0.2f
+                    }
                 };
                 bug.race.lifeStageAges = new List<LifeStageAge>
                 {
@@ -170,11 +166,10 @@ namespace KK_ResourceBugs
                         soundAngry = KK_DefOf.Pawn_Megascarab_Angry
                     }
                 };
-                
+
                 yield return bug;
                 i++;
             }
-            yield break;
         }
     }
 }
