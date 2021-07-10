@@ -69,7 +69,6 @@ namespace KK_ResourceBugs
                 bug.race.hasGenders = false;
                 bug.race.manhunterOnDamageChance = 0.2f;
                 bug.race.manhunterOnTameFailChance = 0.018f;
-                bug.race.nameOnNuzzleChance = 0;
                 bug.race.hediffGiverSets = thingAnimal.race.hediffGiverSets;
                 bug.recipes = thingAnimal.recipes;
 

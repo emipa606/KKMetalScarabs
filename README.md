@@ -19,13 +19,13 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=1440319433
 	
 ![Image](https://i.imgur.com/NOW7jU1.png)
 
-Dynamically generates a scarab for each material with the tag "Metallic"
+Dynamically generates a scarab for each material with the tag &quot;Metallic&quot;
 (steel, plasteel, gold, silver, and any properly designated material in mods)
 
 This mod is made with compatability in mind and adds scarabs based on the materials in the core game and in mods.
-The scarabs can be killed and butchered for it's indivitual resource (15 at 100% butchering efficiency, 150 for 'small' resources like gold and silver)
+The scarabs can be killed and butchered for it&apos;s indivitual resource (15 at 100% butchering efficiency, 150 for &apos;small&apos; resources like gold and silver)
 
-They don't spawn naturally but can arrive in a 'Thrumbos Pass'-like event.
+They don&apos;t spawn naturally but can arrive in a &apos;Thrumbos Pass&apos;-like event.
 
 ![Image](https://i.imgur.com/Rs6T6cr.png)
 
@@ -37,6 +37,7 @@ They don't spawn naturally but can arrive in a 'Thrumbos Pass'-like event.
 -  For best support, please use the Discord-channel for error-reporting.
 -  Do not report errors by making a discussion-thread, I get no notification of that.
 -  If you have the solution for a problem, please post it to the GitHub repository.
+
 
 
 
