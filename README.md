@@ -1,33 +1,24 @@
 # KKMetalScarabs
 
-![Image](https://i.imgur.com/WAEzk68.png)
+![Image](https://i.imgur.com/buuPQel.png)
 
 Update of Kilian Kilmisters mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1440319433
 
-![Image](https://i.imgur.com/7Gzt3Rg.png)
+![Image](https://i.imgur.com/pufA0kM.png)
 
-
-[table]
-    [tr]
-        [td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
-[/td]
-        [td]https://github.com/emipa606/KKMetalScarabs]![Image](https://i.imgur.com/kTkpTOE.png)
-[/td]
-    [/tr]
-[/table]
 	
-![Image](https://i.imgur.com/NOW7jU1.png)
+![Image](https://i.imgur.com/Z4GOv8H.png)
 
-Dynamically generates a scarab for each material with the tag &quot;Metallic&quot;
+Dynamically generates a scarab for each material with the tag "Metallic"
 (steel, plasteel, gold, silver, and any properly designated material in mods)
 
 This mod is made with compatability in mind and adds scarabs based on the materials in the core game and in mods.
-The scarabs can be killed and butchered for it&apos;s indivitual resource (15 at 100% butchering efficiency, 150 for &apos;small&apos; resources like gold and silver)
+The scarabs can be killed and butchered for it's indivitual resource (15 at 100% butchering efficiency, 150 for 'small' resources like gold and silver)
 
-They don&apos;t spawn naturally but can arrive in a &apos;Thrumbos Pass&apos;-like event.
+They don't spawn naturally but can arrive in a 'Thrumbos Pass'-like event.
 
-![Image](https://i.imgur.com/Rs6T6cr.png)
+![Image](https://i.imgur.com/PwoNOj4.png)
 
 
 
