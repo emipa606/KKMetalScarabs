@@ -42,8 +42,8 @@ internal static class KK_ThingDefGenerator_Bugs
             bug.hasTooltip = true;
             bug.soundImpactDefault = DefDatabase<SoundDef>.GetNamed("BulletImpact_Flesh");
             StatUtility.SetStatValueInList(ref bug.statBases, StatDefOf.Mass, 70);
-            bug.inspectorTabs = new List<Type>
-            {
+            bug.inspectorTabs =
+            [
                 typeof(ITab_Pawn_Health),
                 typeof(ITab_Pawn_Needs),
                 typeof(ITab_Pawn_Character),
@@ -53,11 +53,8 @@ internal static class KK_ThingDefGenerator_Bugs
                 typeof(ITab_Pawn_Prisoner),
                 typeof(ITab_Pawn_Social),
                 typeof(ITab_Pawn_Log)
-            };
-            bug.comps = new List<CompProperties>
-            {
-                new CompProperties(typeof(CompAttachBase))
-            };
+            ];
+            bug.comps = [new CompProperties(typeof(CompAttachBase))];
             bug.drawGUIOverlay = true;
 
             //AnimalThingBase
@@ -82,26 +79,18 @@ internal static class KK_ThingDefGenerator_Bugs
             bug.race.useMeatFrom = KK_DefOf.Megaspider;
             bug.race.wildness = 0.95f;
             bug.race.soundMeleeHitPawn = SoundDefOf.Pawn_Melee_Punch_HitPawn;
-            bug.race.soundMeleeHitBuilding = SoundDefOf.Pawn_Melee_Punch_HitBuilding;
+            bug.race.soundMeleeHitBuilding = DefDatabase<SoundDef>.GetNamedSilentFail("Pawn_Melee_Punch_HitBuilding");
             bug.race.soundMeleeMiss = SoundDefOf.Pawn_Melee_Punch_Miss;
-            bug.tradeTags = new List<string>
-            {
+            bug.tradeTags =
+            [
                 "StandardAnimal",
                 "AddedBug"
-            };
-
-            int amount()
-            {
-                return metal.smallVolume ? 150 : 15;
-            }
+            ];
 
             bug.defName = "Bug_" + metal.defName;
             bug.label = "KKSc.Scarab".Translate(metal.label);
             bug.description = "KKSc.ScarabInfoExpanded".Translate(metal.label);
-            bug.butcherProducts = new List<ThingDefCountClass>
-            {
-                new ThingDefCountClass(metal, amount())
-            };
+            bug.butcherProducts = [new ThingDefCountClass(metal, amount())];
 
             StatUtility.SetStatValueInList(ref bug.statBases, StatDefOf.ArmorRating_Blunt, 0.3f);
             StatUtility.SetStatValueInList(ref bug.statBases, StatDefOf.ArmorRating_Sharp, 0.5f);
@@ -112,43 +101,40 @@ internal static class KK_ThingDefGenerator_Bugs
             bug.race.baseHungerRate = 0.2f;
             bug.race.baseHealthScale = 0.8f;
             bug.race.lifeExpectancy = 10;
-            bug.tools = new List<Tool>
-            {
+            bug.tools =
+            [
                 new Tool
                 {
-                    capacities = new List<ToolCapacityDef>
-                    {
-                        KK_DefOf.Bite
-                    },
+                    capacities = [KK_DefOf.Bite],
                     power = 7 * sharpDamageMultiplier,
                     cooldownTime = 2.5f * meleeWeapon_CooldownMultiplier,
                     linkedBodyPartsGroup = KK_DefOf.Mouth
                 },
+
                 new Tool
                 {
                     label = "head",
-                    capacities = new List<ToolCapacityDef>
-                    {
-                        KK_DefOf.Blunt
-                    },
+                    capacities = [KK_DefOf.Blunt],
                     power = 4 * bluntDamageMultiplier,
                     cooldownTime = 1.65f * meleeWeapon_CooldownMultiplier,
                     linkedBodyPartsGroup = KK_DefOf.HeadAttackTool,
                     chanceFactor = 0.2f
                 }
-            };
-            bug.race.lifeStageAges = new List<LifeStageAge>
-            {
+            ];
+            bug.race.lifeStageAges =
+            [
                 new LifeStageAge
                 {
                     def = KK_DefOf.EusocialInsectLarva,
                     minAge = 0
                 },
+
                 new LifeStageAge
                 {
                     def = KK_DefOf.EusocialInsectJuvenile,
                     minAge = 0.03f
                 },
+
                 new LifeStageAge
                 {
                     def = KK_DefOf.EusocialInsectAdult,
@@ -158,10 +144,16 @@ internal static class KK_ThingDefGenerator_Bugs
                     soundCall = KK_DefOf.Pawn_Megascarab_Call,
                     soundAngry = KK_DefOf.Pawn_Megascarab_Angry
                 }
-            };
+            ];
 
             yield return bug;
             i++;
+            continue;
+
+            int amount()
+            {
+                return metal.smallVolume ? 150 : 15;
+            }
         }
     }
 }

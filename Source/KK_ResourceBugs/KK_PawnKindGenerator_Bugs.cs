@@ -47,8 +47,8 @@ internal static class KK_PawnKindGenerator_Bugs
             bugKind.canArriveManhunter = false;
 
 
-            bugKind.lifeStages = new List<PawnKindLifeStage>
-            {
+            bugKind.lifeStages =
+            [
                 new PawnKindLifeStage
                 {
                     bodyGraphicData = new GraphicData
@@ -63,6 +63,7 @@ internal static class KK_PawnKindGenerator_Bugs
                         drawSize = new Vector2(1, 1)
                     }
                 },
+
                 new PawnKindLifeStage
                 {
                     bodyGraphicData = new GraphicData
@@ -77,6 +78,7 @@ internal static class KK_PawnKindGenerator_Bugs
                         drawSize = new Vector2(1.13f, 1.13f)
                     }
                 },
+
                 new PawnKindLifeStage
                 {
                     bodyGraphicData = new GraphicData
@@ -91,7 +93,7 @@ internal static class KK_PawnKindGenerator_Bugs
                         drawSize = new Vector2(1.26f, 1.26f)
                     }
                 }
-            };
+            ];
             yield return bugKind;
             i++;
         }
